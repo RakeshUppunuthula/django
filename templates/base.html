@@ -1,10 +1,15 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block my_page_Title%} MyChallenges {% endblock %}</title>
+    <title>{% block my_pageTitle%} MyChallenges {% endblock %}</title>
+    <link href = "{% static "styles.css" %}" rel="stylesheet"></link>
+
+    {% block cssfiles %}
+    
+    {% endblock %}
   </head>
   <body>
     {% block content %}{% endblock %}
