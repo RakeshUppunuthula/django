@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Review</title>
+    <link rel="stylesheet" href="{% static 'reviews/styles.css' %}"/>
+</head>
+<body>
+    <form method="POST" >
+        {% csrf_token %} 
+        {% comment %} {% if has_error %}
+        <p>the data is not enterd in the feild</p>
+        {% endif %} {% endcomment %}
+        
+        {% comment %} {{ form }} {% endcomment %}
+
+        {% for feild in form %}
+
+        <div class="form-control {% if feild.errors %} errors {% endif%}">
+            {{ feild.label_tag}}
+            {{ feild }}
+            {{ feild.errors }}
+    
+            </div>
+
+        {% endfor  %}
+
+        
+        {% comment %} <div class="form-control {% if form.user_Name.errors %} errors {% endif%}">
+        {{form.review_text.label_tag}}
+        {{form.review_text}}
+        {{form.review_text.errors}}
+
+        </div>
+        <div class="form-control {% if form.user_Name.errors %} errors {% endif%}">
+        {{form.rating.label_tag}}
+        {{form.rating}}
+        {{form.rating.errors}}
+        </div>
+        <div> {% endcomment %}
+        <button >Send</button>
+        </div>
+    </form>
+    
+</body>
+</html>
