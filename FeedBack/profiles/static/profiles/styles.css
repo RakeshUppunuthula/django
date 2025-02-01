@@ -1,0 +1,49 @@
+/* Apply styles to the entire page */
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f8f9fa; /* Light background */
+    margin: 0;
+}
+
+/* Form container with a shadow effect */
+form {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Default file input styling */
+input[type="file"] {
+    font-size: 14px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: #f0f0f0;
+    cursor: pointer;
+}
+
+/* Upload button */
+button {
+    background: #5a0e34; /* Dark maroon */
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+/* Button hover effect */
+button:hover {
+    background: #3e0824;
+}
