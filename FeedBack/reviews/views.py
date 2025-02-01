@@ -101,12 +101,28 @@ class ReviewListView(ListView):
     #    reviews =review.objects.all()
     #    context["reviews"] =reviews
     #    return context
-    
 
+
+        
+class AddFavoriteview(View):
+        def post(self ,request):
+            review_id =request.POST["review_id"]
+            #fav_review =  review.objects.get(pk =review_id)
+            request.session["favorite_review"] =review_id
+            return HttpResponseRedirect("/reviews/"+review_id)
+
+    
 class Review_Detail(DetailView):
     template_name = "reviews/review_detail.html"
     model =review
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        loaded_review =self.get_object()
+        request =self.request
+        favorite_id = request.session.get("favorite_review")
+        context["is_favorite"] =favorite_id == str(loaded_review.id)
+        return context
     
 
 
@@ -116,3 +132,6 @@ class Review_Detail(DetailView):
     #     selectedReviews =review.objects.get(pk=review_Id)
     #     context["review"] =selectedReviews
     #     return context
+
+
+
